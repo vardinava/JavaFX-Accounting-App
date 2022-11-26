@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainMenuController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="580.0" prefWidth="700.0" spacing="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Tambah Data Baru">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfieldid" prefHeight="25.0" prefWidth="54.0" promptText="ID" />
+            <TextField fx:id="tfieldket" promptText="Keterangan" />
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="rb_debit" mnemonicParsing="false" selected="true" text="Debit">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tg_dk" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rb_kredit" mnemonicParsing="false" text="Kredit" toggleGroup="$tg_dk" />
+               </children>
+            </HBox>
+            <TextField fx:id="tfieldd" promptText="Nilai debit/kredit" />
+            <Button fx:id="btn_submit" mnemonicParsing="false" onAction="#addKas" text="Submit">
+               <VBox.margin>
+                  <Insets bottom="90.0" />
+               </VBox.margin>
+            </Button>
+            <Label text="Statistik">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="22.0" prefWidth="180.0">
+               <children>
+                  <Label text="Jumlah Nota" />
+                  <Label fx:id="lb_jum" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="101.0" text="Label" textAlignment="RIGHT" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="180.0">
+               <children>
+                  <Label text="Total Debit" />
+                  <Label fx:id="lb_debit" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="111.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="180.0">
+               <children>
+                  <Label text="Total Kredit" />
+                  <Label fx:id="lb_kredit" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="108.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="180.0">
+               <children>
+                  <Label text="Saldo saat ini" />
+                  <Label fx:id="lb_saldo" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" text="Label" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="70.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="186.0" layoutY="37.0" prefHeight="580.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button fx:id="btn_print" mnemonicParsing="false" onAction="#printReport" text="Print" />
+              </items>
+            </ToolBar>
+            <TableView id="kas" fx:id="tbl_kas" maxHeight="1.7976931348623157E308" prefHeight="540.0" prefWidth="500.0">
+              <columns>
+                <TableColumn fx:id="col_tgl" minWidth="75.0" prefWidth="-1.0" text="Tanggal" />
+                <TableColumn fx:id="col_ket" minWidth="140.0" prefWidth="-1.0" text="Keterangan" />
+                  <TableColumn fx:id="col_debit" minWidth="100.0" prefWidth="-1.0" text="Debit" />
+                  <TableColumn fx:id="col_kredit" minWidth="100.0" prefWidth="-1.0" text="Kredit" />
+                  <TableColumn fx:id="col_saldo" minWidth="100.0" prefWidth="-1.0" text="Saldo" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
